@@ -34,7 +34,6 @@ const CreateNotes = (props) => {
                 const notes = data ? JSON.parse(data) : [];
                 let updatedNotes = [...notes]; 
                 updatedNotes[props?.route?.params?.index] = note; 
-                console.log("data",notes,updatedNotes);
                 await AsyncStorage.setItem("NOTES", JSON.stringify(updatedNotes))
                     .then(() => navigation.navigate("Home"))
                 setNote("");
@@ -51,8 +50,7 @@ const CreateNotes = (props) => {
         } else {
             navigation.navigate("Home")
         }
-
-    }
+    };
 
     return (
         <View style={{ flex: 1, backgroundColor: "#fff", paddingHorizontal: 10 }}>
@@ -65,7 +63,6 @@ const CreateNotes = (props) => {
                     style={{ color: "black", fontSize: 15 }}
                 />
             </Pressable>
-
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ position: 'absolute', bottom: 10, left: 50, right: 50 }}>
                 <Button
                     title="Save Notes"
@@ -76,4 +73,5 @@ const CreateNotes = (props) => {
         </View>
     )
 }
+
 export default CreateNotes;
