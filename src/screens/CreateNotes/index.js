@@ -60,6 +60,7 @@ const CreateNotes = (props) => {
                     value={note}
                     onChangeText={setNote}
                     multiline={true}
+                    autoFocus={true}
                     style={{ color: "black", fontSize: 15 }}
                 />
             </Pressable>
